@@ -70,8 +70,6 @@ if [ "$LOCAL_MIRROR" = true ]; then
   rm -f .repo/local_manifests/proprietary.xml
   if [ "$INCLUDE_PROPRIETARY" = true ]; then
     wget -q -O .repo/local_manifests/proprietary.xml "https://raw.githubusercontent.com/TheMuppets/manifests/mirror/default.xml"
-    /root/build_manifest.py --remote "https://github.com" --remotename "github_https" \
-      "https://raw.githubusercontent.com/TheMuppets/manifests/mirror/default.xml" .repo/local_manifests/proprietary_github.xml
   fi
 
   echo ">> [$(date)] Syncing mirror repository" | tee -a "$repo_log"
@@ -154,8 +152,6 @@ for branch in ${BRANCH_NAME//,/ }; do
     rm -f .repo/local_manifests/proprietary.xml
     if [ "$INCLUDE_PROPRIETARY" = true ]; then
       wget -q -O .repo/local_manifests/proprietary.xml "https://raw.githubusercontent.com/TheMuppets/manifests/$themuppets_branch/muppets.xml"
-      /root/build_manifest.py --remote "https://github.com" --remotename "github_https" \
-        "https://raw.githubusercontent.com/TheMuppets/manifests/$themuppets_branch/muppets.xml" .repo/local_manifests/proprietary_github.xml
     fi
 
     echo ">> [$(date)] Syncing branch repository" | tee -a "$repo_log"
