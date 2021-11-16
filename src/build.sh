@@ -19,7 +19,7 @@
 
 repo_log="$LOGS_DIR/repo-$(date +%Y%m%d).log"
 
-# cd to working directory
+# switch to working directory
 cd "$SRC_DIR" || exit
 
 if [ -f /root/userscripts/begin.sh ]; then
